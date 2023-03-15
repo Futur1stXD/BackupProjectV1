@@ -1,3 +1,4 @@
 FROM openjdk:19
-ADD ./docker-spring-boot.jar docker-spring-boot.jar
-ENTRYPOINT ["java", "-jar", "docker-spring-boot.jar"]
+EXPOSE 8080
+ADD target/docker-sping-boot.jar docker-sping-boot.jar
+ENTRYPOINT ["java", "-jar", "/docker-sping-boot.jar"]

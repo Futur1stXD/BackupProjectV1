@@ -83,7 +83,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>docker-sping-boot</finalName>
+        <finalName>docker-spring-boot</finalName>
 
     </build>
 </project>

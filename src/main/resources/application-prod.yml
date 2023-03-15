@@ -3,7 +3,6 @@ spring:
     url: jdbc:postgresql://postgres:mWGAGwsIrhfiG6zx30ou@containers-us-west-123.railway.app:7944/railway
     username: postgres
     password: mWGAGwsIrhfiG6zx30ou
-    name: spring-blog
     driver-class-name: org.postgresql.Driver
 
   sql:

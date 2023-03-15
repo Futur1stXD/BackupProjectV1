@@ -1,8 +1,6 @@
-create sequence users_seq;
+create sequence IF NOT EXISTS users_seq;
 
-alter sequence users_seq owner to postgres;
-
-create table users
+create table IF NOT EXISTS users
 (
     id         bigint                                          not null,
     email      varchar(255)                                    not null
@@ -15,10 +13,7 @@ create table users
     status     varchar(25) default 'ACTIVE'::character varying not null
 );
 
-alter table users
-    owner to postgres;
-
-create table file_store
+create table IF NOT EXISTS file_store
 (
     id        varchar not null,
     file_name varchar not null,
@@ -27,10 +22,7 @@ create table file_store
     email     varchar not null
 );
 
-alter table file_store
-    owner to postgres;
-
-create table response_file
+create table IF NOT EXISTS response_file
 (
     id           varchar not null,
     email        varchar not null,
@@ -39,7 +31,3 @@ create table response_file
     file_type    varchar not null,
     file_size    bigint  not null
 );
-
-alter table response_file
-    owner to postgres;
-

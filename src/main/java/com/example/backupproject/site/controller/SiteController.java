@@ -1,8 +1,6 @@
 package com.example.backupproject.site.controller;
 
-import ch.qos.logback.core.testUtil.MockInitialContextFactory;
 import com.example.backupproject.dto.AuthenticationRequestDto;
-import com.example.backupproject.model.FileBackup;
 import com.example.backupproject.model.ResponseFile;
 import com.example.backupproject.model.User;
 import com.example.backupproject.site.rest.SiteRestController;
@@ -12,15 +10,12 @@ import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.view.RedirectView;
 
-import java.io.File;
-import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.List;
 
 @Controller

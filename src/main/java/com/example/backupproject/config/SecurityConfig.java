@@ -31,6 +31,7 @@ public class SecurityConfig {
                 .requestMatchers("/main", "/auth/login", "/auth/register").permitAll()
                 .requestMatchers("/login", "/register", "/upload_file", "/user/files", "/delete_files/**").permitAll()
                 .requestMatchers("/download/**").anonymous()
+                .requestMatchers("/resouces/**", "/css/**").permitAll()
                 .requestMatchers("/api/v1/admin/**").hasAuthority(Role.ADMIN.name())
                 .anyRequest().authenticated()
                 .and()
@@ -42,9 +43,5 @@ public class SecurityConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
-    }
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/resources/**").anyRequest();
     }
 }

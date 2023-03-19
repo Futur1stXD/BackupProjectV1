@@ -62,8 +62,6 @@ public class SiteController {
             for (int i = 0; i < files.size(); i++) {
                 String fileName = files.get(i).getFileName();
                 String fileType = files.get(i).getFileType();
-                System.out.println(fileName);
-                System.out.println(fileType);
                 byte[] content = Files.readAllBytes(Path.of("/Users/futur1st/Downloads/" + fileName));
                 MultipartFile multipartFile = new MockMultipartFile(files.get(i).getFileName(),
                         files.get(i).getFileName(), files.get(i).getFileType(), content);

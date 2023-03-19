@@ -29,7 +29,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/main", "/auth/login", "/auth/register").permitAll()
-                .requestMatchers("/login", "/register", "/upload_file").permitAll()
+                .requestMatchers("/login", "/register", "/upload_file", "/user/files", "/delete_files/**").permitAll()
                 .requestMatchers("/download/**").anonymous()
                 .requestMatchers("/api/v1/admin/**").hasAuthority(Role.ADMIN.name())
                 .anyRequest().authenticated()

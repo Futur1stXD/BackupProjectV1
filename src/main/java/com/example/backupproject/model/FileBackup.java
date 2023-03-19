@@ -26,10 +26,13 @@ public class FileBackup {
     @Lob
     @Column(name = "data")
     private byte[] data;
-    public FileBackup (String email, String fileName, String fileType, byte[] data) {
+    @Column(name = "path")
+    private String path;
+    public FileBackup (String email, String fileName, String fileType, byte[] data, String path) {
         this.email = email;
         this.fileName = fileName;
         this.fileType = fileType;
         this.data = data;
+        this.path = path;
     }
 }

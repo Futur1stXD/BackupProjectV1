@@ -36,7 +36,8 @@ public class FileServiceImpl implements FileService {
                 throw new Exception("Filename contains invalid path sequence: " + fileName);
             }
             String loginedEmail = SecurityContextHolder.getContext().getAuthentication().getName();
-            FileBackup fileBackup = new FileBackup(loginedEmail, fileName, file.getContentType(), file.getBytes());
+            File file1 = new File(fileName);
+            FileBackup fileBackup = new FileBackup(loginedEmail, fileName, file.getContentType(), file.getBytes(), file1.getAbsolutePath());
             log.info("IN saveFile - file: {} successfully saved", fileName);
             return fileBackupRepository.save(fileBackup);
         } catch (Exception e) {

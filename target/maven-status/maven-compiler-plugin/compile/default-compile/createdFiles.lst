@@ -7,6 +7,7 @@ com/example/backupproject/repository/ResponseFileRepository.class
 com/example/backupproject/security/JwtUserDetailsService.class
 com/example/backupproject/service/AdminService.class
 com/example/backupproject/repository/UserRepository.class
+com/example/backupproject/site/FileServiceSite/FileServiceSiteImpl.class
 com/example/backupproject/repository/FileBackupRepository.class
 com/example/backupproject/security/jwt/JwtUserFactory.class
 com/example/backupproject/service/impl/AdminServiceImpl.class
@@ -14,6 +15,7 @@ com/example/backupproject/model/FileBackup.class
 com/example/backupproject/rest/FileBackupController.class
 com/example/backupproject/model/Role.class
 com/example/backupproject/service/impl/FileServiceImpl.class
+com/example/backupproject/site/FileServiceSite/FileServiceSite.class
 com/example/backupproject/service/impl/UserServiceImpl.class
 com/example/backupproject/dto/AuthenticationRequestDto.class
 com/example/backupproject/model/User.class

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
+
 
 @Component
 public class JwtTokenProvider {
@@ -32,6 +34,8 @@ public class JwtTokenProvider {
     protected void init() {
         secret = Base64.getEncoder().encodeToString(secret.getBytes());
     }
+
+
     public String createToken(String username, String role) {
         Claims claims = Jwts.claims().setSubject(username);
         claims.put("role", role);

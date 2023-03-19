@@ -11,11 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,17 +23,18 @@ import java.util.Map;
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationRestController {
-    private AuthenticationManager authenticationManager;
     private JwtTokenProvider jwtTokenProvider;
     private UserService userService;
     private BCryptPasswordEncoder passwordEncoder;
+    private AuthenticationManager authenticationManager;
     @Autowired
-    public AuthenticationRestController(AuthenticationManager authenticationManager, JwtTokenProvider jwtTokenProvider, UserService userService, BCryptPasswordEncoder passwordEncoder) {
-        this.authenticationManager = authenticationManager;
+    public AuthenticationRestController(JwtTokenProvider jwtTokenProvider, UserService userService, BCryptPasswordEncoder passwordEncoder, AuthenticationManager authenticationManager) {
         this.jwtTokenProvider = jwtTokenProvider;
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthenticationRequestDto requestDto) {
         try {

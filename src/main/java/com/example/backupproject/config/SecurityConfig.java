@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -28,7 +29,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/main", "/auth/login", "/auth/register").permitAll()
-                .requestMatchers("/login", "/register").permitAll()
+                .requestMatchers("/login", "/register", "/upload_file").permitAll()
                 .requestMatchers("/download/**").anonymous()
                 .requestMatchers("/api/v1/admin/**").hasAuthority(Role.ADMIN.name())
                 .anyRequest().authenticated()
@@ -42,5 +43,8 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
+    @Bean
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> web.ignoring().requestMatchers("/resources/**").anyRequest();
+    }
 }

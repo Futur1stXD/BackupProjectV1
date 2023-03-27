@@ -16,7 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.io.IOException;
 import java.util.List;
 
-@RestController("/auth")
+@RestController()
 public class FileBackupController {
     private FileService fileService;
     public FileBackupController(FileService fileService) {
